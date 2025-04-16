@@ -13,14 +13,14 @@ for valor in tamano:
 
     inicio=time.perf_counter()
     OrdenamientoBurbuja(datos.copy())
-    fin=time.perf_counter
+    fin=time.perf_counter()
     TiempoBurbuja.append(fin-inicio)
 
 plt.plot(tamano,TiempoBurbuja)
 
 plt.xlabel("CANTIDAD DE NÚMEROS")
 plt.ylabel("TIEMPO (s)")
-plt.title("TIEMPO DE EJECUCIÓN")
+plt.title("TIEMPO DE EJECUCIÓN (BURBUJA)")
 plt.legend()
 plt.grid()
 plt.show()
