@@ -1,7 +1,5 @@
 print("h")
 print("j")
-
-import matplotlib
 """hola"""
 
 """hola2"""
