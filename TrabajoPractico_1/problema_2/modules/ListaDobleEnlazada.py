@@ -158,4 +158,5 @@ class ListaDobleEnlazada:
         copia_lista = lista.copiar()
         nueva.concatenar(copia_lista)
         return nueva
-
+    
+    print(__len__(0,5,15))
