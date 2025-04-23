@@ -5,11 +5,15 @@ class Nodo:
         self.siguiente = None
 
 class ListaDobleEnlazada:
-    def __init__(self):
+    def __init__(self, iterable = None):
         self.cabeza = None
         self.cola = None
         self.tamanio = 0
         self.iterador = None
+
+        if iterable:
+            for elemento in iterable:
+                self.agregar_al_final(elemento)
 
     def __iter__(self):
         self.iterador = self.cabeza
@@ -120,10 +124,8 @@ class ListaDobleEnlazada:
     
     def copiar(self):
         copia = ListaDobleEnlazada()
-        actual = self.cabeza
-        while actual:
-            copia.agregar_al_final(actual.dato)
-            actual = actual.siguiente
+        for valor in self:
+            copia.agregar_al_final(valor)
         return copia
     
     def invertir(self):
