@@ -1,133 +1,155 @@
 class Nodo:
     def __init__(self, dato):
-        self._dato = dato
-        self._previo = None
-        self._siguiente = None
+        self.dato = dato
+        self.anterior = None
+        self.siguiente = None
 
 class ListaDobleEnlazada:
     def __init__(self):
-        self._cabeza = None
-        self._cola = None
-        self._tamano = 0
+        self.cabeza = None
+        self.cola = None
+        self.tamanio = 0
+        self.iterador = None
+
+    def __iter__(self):
+        self.iterador = self.cabeza
+        return self
+    
+    def __next__(self):
+        if self.iterador is None:
+            raise StopIteration
+        dato = self.iterador.dato
+        self.iterador = self.iterador.siguiente
+        return dato
 
     def esta_vacia(self):
-        return self._cabeza is None
+        return self.cabeza is None
     
     def __len__(self):
-        return self._tamano
+        return self.tamanio
     
     def agregar_al_inicio(self, dato):
         nuevo = Nodo(dato)
         if self.esta_vacia():
-            self._cabeza = nuevo
-            self._cola = nuevo
+            self.cabeza = nuevo
+            self.cola = nuevo
         else:
-            nuevo._siguiente = self._cabeza
-            self._cabeza._previo = nuevo
-            self._cabeza = nuevo
-        self._tamano += 1
+            nuevo.siguiente = self.cabeza
+            self.cabeza.anterior = nuevo
+            self.cabeza = nuevo
+        self.tamanio += 1
 
     def agregar_al_final(self, dato):
         nuevo = Nodo(dato)
         if self.esta_vacia():
-            self._cabeza = nuevo
-            self._cola = nuevo
+            self.cabeza = nuevo
+            self.cola = nuevo
         else:
-            self._cola._siguiente = nuevo
-            nuevo._previo = self._cola
-            self._cola = nuevo
-        self._tamano += 1
+            self.cola.siguiente = nuevo
+            nuevo.anterior = self.cola
+            self.cola = nuevo
+        self.tamanio += 1
 
     def insertar(self, dato, posicion):
-        if posicion < 0 or posicion > self._tamano:
+        if posicion < 0 or posicion > self.tamanio:
             raise IndexError("Posición fuera de rango")
         
         nuevo = Nodo(dato)
         if posicion == 0:
-            nuevo._siguiente = self._cabeza
-            if self._cabeza:
-                self._cabeza._previo = nuevo
-            self._cabeza = nuevo
-            if self._tamano == 0:
-                self._cola = nuevo
-            self._tamano += 1
+            nuevo.siguiente = self.cabeza
+            if self.cabeza:
+                self.cabeza.anterior = nuevo
+            self.cabeza = nuevo
+            if self.tamanio == 0:
+                self.cola = nuevo
+            self.tamanio += 1
             return
         
-        actual = self._cabeza
+        actual = self.cabeza
         for i in range(posicion - 1):
-            actual = actual._siguiente
+            actual = actual.siguiente
         
-        nuevo._siguiente = actual._siguiente
-        nuevo._previo = actual
-        if actual._siguiente:
-            actual._siguiente._previo = nuevo
-        actual._siguiente = nuevo
+        nuevo.siguiente = actual.siguiente
+        nuevo.anterior = actual
+        if actual.siguiente:
+            actual.siguiente.anterior = nuevo
+        actual.siguiente = nuevo
         
-        if nuevo._siguiente is None:
-            self._cola = nuevo
+        if nuevo.siguiente is None:
+            self.cola = nuevo
         
-        self._tamano += 1
+        self.tamanio += 1
 
-    def extraer(self, posicion):
+    def extraer(self, posicion = None):
         if self.esta_vacia():
             raise IndexError("La lista está vacía")
         
-        if posicion < 0 or posicion >= self._tamano:
+        if posicion is None:
+            posicion = self.tamanio - 1
+        
+        if posicion < 0:
+            posicion += self.tamanio
+        
+        if posicion < 0 or posicion >= self.tamanio:
             raise IndexError("Posición fuera de rango")
 
         if posicion == 0:
-            dato = self._cabeza._dato
-            self._cabeza = self._cabeza._siguiente
-            if self._cabeza:
-                self._cabeza._previo = None
+            dato = self.cabeza.dato
+            self.cabeza = self.cabeza.siguiente
+            if self.cabeza:
+                self.cabeza.anterior = None
             else:
-                self._cola = None
-            self._tamano -= 1
+                self.cola = None
+            self.tamanio -= 1
             return dato
         
-        actual = self._cabeza
+        actual = self.cabeza
         for _ in range(posicion):
-            actual = actual._siguiente
+            actual = actual.siguiente
         
-        dato = actual._dato
-        if actual._previo:
-            actual._previo._siguiente = actual._siguiente
-        if actual._siguiente:
-            actual._siguiente._previo = actual._previo
-        if actual == self._cola:
-            self._cola = actual._previo
+        dato = actual.dato
+        if actual.anterior:
+            actual.anterior.siguiente = actual.siguiente
+        if actual.siguiente:
+            actual.siguiente.anterior = actual.anterior
+        if actual == self.cola:
+            self.cola = actual.anterior
         
-        self._tamano -= 1
+        self.tamanio -= 1
         return dato
     
     def copiar(self):
         copia = ListaDobleEnlazada()
-        actual = self._cabeza
+        actual = self.cabeza
         while actual:
-            copia.agregar_al_final(actual._dato)
-            actual = actual._siguiente
+            copia.agregar_al_final(actual.dato)
+            actual = actual.siguiente
         return copia
     
     def invertir(self):
         if self.esta_vacia():
             return
-        actual = self._cabeza
+        actual = self.cabeza
         while actual:
-            actual._previo, actual._siguiente = actual._siguiente, actual._previo
-            actual = actual._previo
-        self._cabeza, self._cola = self._cola, self._cabeza
+            actual.anterior, actual.siguiente = actual.siguiente, actual.anterior
+            actual = actual.anterior
+        self.cabeza, self.cola = self.cola, self.cabeza
 
     def concatenar(self, lista):
         if lista.esta_vacia():
             return
         if self.esta_vacia():
-            self._cabeza = lista._cabeza
-            self._cola = lista._cola
+            self.cabeza = lista.cabeza
+            self.cola = lista.cola
         else:
-            self._cola._siguiente = lista._cabeza
-            lista._cabeza._previo = self._cola
-            self._cola = lista._cola
-        self._tamano += len(lista)
+            copia_lista = lista.copiar()
+            self.cola.siguiente = copia_lista.cabeza
+            copia_lista.cabeza.anterior = self.cola
+            self.cola = copia_lista.cola
+        self.tamanio += len(lista)
+
+        if self.cabeza:
+            self.cabeza.anterior = None
 
     def __add__(self, lista):
         nueva = self.copiar()
