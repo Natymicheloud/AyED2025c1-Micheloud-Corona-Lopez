@@ -6,8 +6,8 @@ Created on Thu Aug 11 09:32:57 2022
 """
 
 
-from mazo import Mazo, DequeEmptyError
-from carta import Carta
+from modules import Mazo
+from modules import Carta
 import random
 
 N_TURNOS = 10000
@@ -20,9 +20,9 @@ class JuegoGuerra:
     
     def __init__(self, random_seed = 0):
         
-        self._mazo_inicial = Mazo()
-        self.mazo_1 = Mazo()
-        self.mazo_2 = Mazo()
+        self._mazo_inicial = Mazo
+        self.mazo_1 = Mazo
+        self.mazo_2 = Mazo
         self._guerra = False
         self._ganador = ''
         self.empate = False
@@ -70,8 +70,7 @@ class JuegoGuerra:
         de la baraja para formar cartas
         """
         random.seed(self._seed)
-        cartas = [Carta(valor, palo) for valor in JuegoGuerra.valores
-                  for palo in JuegoGuerra.palos]
+        cartas = [Carta[valor, palo] for valor in JuegoGuerra.valores for palo in JuegoGuerra.palos]
         
         #cartas_shuffled = random.sample(cartas, len(cartas))
         random.shuffle(cartas)
@@ -94,7 +93,7 @@ class JuegoGuerra:
     
     def iniciar_juego(self, ver_partida=True):
         
-        self.armar_mazo_inicial()
+        self.armar_mazo_inicial
         self.repartir_cartas()
         
         self._cartas_en_la_mesa = []
@@ -190,6 +189,6 @@ if __name__ == "__main__":
 
     n = random.randint(0, 1000)
     juego = JuegoGuerra(random_seed=n)
-    juego.iniciar_juego()
+    juego.iniciar_juego
     
     print(n)
