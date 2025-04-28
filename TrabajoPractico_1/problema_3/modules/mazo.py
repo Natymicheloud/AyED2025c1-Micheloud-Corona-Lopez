@@ -1,4 +1,4 @@
-from modules import ListaDobleEnlazada 
+from modules.ListaDobleEnlazada import ListaDobleEnlazada 
 
 class DequeEmptyError(Exception):
     pass
