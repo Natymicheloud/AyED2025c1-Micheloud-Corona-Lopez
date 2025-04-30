@@ -1,17 +1,17 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+# Algoritmos de Ordenamiento.
 
-Breve descripción del proyecto:
+Breve descripción del proyecto: implementar algoritmos de ordenamiento, comprobar su funcionamiento, comparar el orden de complejidad mediante un analisis a priori y a posteriori (mediante gráficas).
 
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
-
----
 ## 🏗Arquitectura General
 
 Explica brevemente cómo está organizado el código (funciones y/o clases)
+Los códigos de ordenamiento están disponibles en la carpeta [modules](./modules) del problema.
 
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
+Los códigos para la medición de tiempo de cada algoritmo y del método sorted están disponibles en la carpeta [test](./test) del problema.
 
-El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
+Las gráficas de los resultados están disponible en la carpeta [data](./data) del problema.
+
+El informe completo está disponible en la carpeta [docs](./docs) del problema.
 
 ---
 ## 📑Dependencias
@@ -31,13 +31,14 @@ El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
    ```bash
    pip install -r requirements.txt
    ```
-   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del proyecto.
+   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del problema.
 
 ---
 ## 🙎‍♀️🙎‍♂️Autores
 
-- Apellido y Nombre del primer integrante
-- Apellido y Nombre del primer integrante
+- Corona Abigail.
+- López Lascurain Ema.
+- Micheloud Natalí.
 
 ---
 

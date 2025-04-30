@@ -1,15 +1,15 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+# Juego Guerra
 
-Breve descripción del proyecto:
-
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+Breve descripción del proyecto: Implementación de la clase Mazo en el código de Juego Guerra provisto por la cátedra, comprobación del funcionamiento de la clase Mazo y del Juego Guerra mediante tests provistos por la cátedra.
 
 ---
 ## 🏗Arquitectura General
 
 Explica brevemente cómo está organizado el código (funciones y/o clases)
+Los códigos de la clase Mazo, de la clase Carta, de la Lista Doblemente Enlazada y del Juego Guerra están disponibles en la carpeta [modules](./modules) del problema.
 
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
+Los tests para la clase Mazo y para el Juego Guerra están disponibles en la carpeta [test](./test) del problema.
+
 
 El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
 
@@ -31,13 +31,14 @@ El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
    ```bash
    pip install -r requirements.txt
    ```
-   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del proyecto.
+   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del problema.
 
 ---
 ## 🙎‍♀️🙎‍♂️Autores
 
-- Apellido y Nombre del primer integrante
-- Apellido y Nombre del primer integrante
+- Corona Abigail.
+- López Lascurain Ema.
+- Micheloud Natalí.
 
 ---
 
