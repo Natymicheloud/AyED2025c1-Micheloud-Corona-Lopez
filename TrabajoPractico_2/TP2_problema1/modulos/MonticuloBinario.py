@@ -25,7 +25,9 @@ class MonticuloBinario:
                 temporal = self.listamonticulo[i]
                 self.listamonticulo[i] = self.listamonticulo[hijomin]
                 self.listamonticulo[hijomin] = temporal
-        i = hijomin
+                i = hijomin 
+            else:
+                break
      
     def hijoMin(self, i):
         if (i*2)+1 > self.tamañoactual:
