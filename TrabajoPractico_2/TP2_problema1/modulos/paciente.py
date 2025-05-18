@@ -12,16 +12,15 @@ probabilidades = [0.1, 0.3, 0.6]
 contador_llegada=0
 
 class Paciente:
+    contador_llegada = 0
     def __init__(self):
-        global contador_llegada
         n = len(nombres)
         self.__nombre = nombres[randint(0, n-1)]
         self.__apellido = apellidos[randint(0, n-1)]
         self.__riesgo = choices(niveles_de_riesgo, probabilidades)[0]
         self.__descripcion = descripciones_de_riesgo[self.__riesgo-1]
-        self.__llegada = contador_llegada
-        contador_llegada += 1
-
+        self.__llegada = Paciente.contador_llegada
+        Paciente.contador_llegada += 1
 
     def get_nombre(self):
         return self.__nombre
@@ -45,18 +44,19 @@ class Paciente:
         cad += self.__apellido + '\t -> '
         cad += str(self.__riesgo) + '-' + self.__descripcion + '-' + str(self.__llegada)
         return cad
-    
-paciente1 = Paciente()
-paciente2 = Paciente()
-paciente3 = Paciente()
 
-print("Paciente 1:", paciente1)
-print("Paciente 2:", paciente2)
-print("Paciente 3:", paciente3)
+if __name__ == '__main__':
+    paciente1 = Paciente()
+    paciente2 = Paciente()
+    paciente3 = Paciente()
 
-if paciente1 < paciente2 and paciente1 < paciente3:
-    print(f"{paciente1.get_nombre()} tiene mayor prioridad que {paciente2.get_nombre()} y {paciente3.get_nombre()}")
-elif paciente2 < paciente1 and paciente2 < paciente3:
-    print(f"{paciente2.get_nombre()} tiene mayor prioridad que {paciente1.get_nombre()} y {paciente3.get_nombre()}")
-elif paciente3 < paciente1 and paciente3 < paciente2:
-    print(f"{paciente3.get_nombre()} tiene mayor prioridad que {paciente1.get_nombre()} y {paciente2.get_nombre()}")
+    print("Paciente 1:", paciente1)
+    print("Paciente 2:", paciente2)
+    print("Paciente 3:", paciente3)
+
+    if paciente1 < paciente2 and paciente1 < paciente3:
+        print(f"{paciente1.get_nombre()} tiene mayor prioridad que {paciente2.get_nombre()} y {paciente3.get_nombre()}")
+    elif paciente2 < paciente1 and paciente2 < paciente3:
+        print(f"{paciente2.get_nombre()} tiene mayor prioridad que {paciente1.get_nombre()} y {paciente3.get_nombre()}")
+    elif paciente3 < paciente1 and paciente3 < paciente2:
+        print(f"{paciente3.get_nombre()} tiene mayor prioridad que {paciente1.get_nombre()} y {paciente2.get_nombre()}")
