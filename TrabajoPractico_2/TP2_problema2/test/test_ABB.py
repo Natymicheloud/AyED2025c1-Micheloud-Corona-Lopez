@@ -2,7 +2,7 @@
 
 
 import unittest
-from TP2_problema1.modulos.MonticuloBinario import ABB
+from modulos.abb import ABB
 import numpy as np
 
 
