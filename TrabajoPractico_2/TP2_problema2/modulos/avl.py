@@ -11,7 +11,7 @@ class AVL():
     def __init__(self):
         self._raiz = None 
 
-    def _insertar(self, nodo, fecha, temperatura):
+    def _insertar(self, nodo, fecha, temperatura): #método privado que aplica la inserción recursiva y el balanceo del árbol
         if nodo is None:
             return NodoAVL(fecha, temperatura) #si el nodo es una hoja, se crea uno nuevo con los datos
         
@@ -23,10 +23,10 @@ class AVL():
 
         return self._balancear(nodo) #despues de insertar, se balancea el árbol
     
-    def insertar(self, fecha, temperatura):
+    def insertar(self, fecha, temperatura): #interfaz pública para insertar datos en el AVL sin exponer la lógica interna
         self._raiz = self._insertar(self._raiz, fecha, temperatura)
 
-    def _buscar(self, nodo, fecha):
+    def _buscar(self, nodo, fecha): #método privado que aplica la búsqueda recursiva
         if nodo is None:
             return None #si el nodo es None, no se encontró la fecha
         
@@ -39,10 +39,10 @@ class AVL():
         else:
             return self._buscar(nodo._hijoderecho, fecha) #si la fecha es mayor al nodo actual, se busca en el subárbol derecho
         
-    def buscar(self, fecha):
+    def buscar(self, fecha): #interfaz pública para buscar datos en el AVL sin exponer la lógica interna
         return self._buscar(self._raiz, fecha) #busca temperatura por fecha
     
-    def _balancear(self, nodo):
+    def _balancear(self, nodo): #método privado que aplica el balanceo del árbol
         if nodo is None:
             return nodo #si el nodo es None, no se hace nada
         
@@ -61,10 +61,10 @@ class AVL():
         
         return nodo #si el árbol está balanceado, se devuelve el nodo sin cambios
     
-    def _altura(self, nodo):
+    def _altura(self, nodo): #método privado que devuelve la altura del nodo
         return nodo._altura if nodo else 0 #devuelve la altura del nodo, o 0 si es None
 
-    def _rotarDerecha(self, nodo):
+    def _rotarDerecha(self, nodo): #método privado que aplica la rotación derecha
         nuevaraiz = nodo._hijoizquierdo #se guarda el hijo izquierdo del nodo actual como nueva raíz
         nodo._hijoizquierdo = nuevaraiz._hijoderecho #el hijo derecho de la nueva raíz se convierte en el hijo izquierdo del nodo actual
         nuevaraiz._hijoderecho = nodo
@@ -74,7 +74,7 @@ class AVL():
         
         return nuevaraiz 
     
-    def _rotarIzquierda(self, nodo):
+    def _rotarIzquierda(self, nodo): #método privado que aplica la rotación izquierda
         nuevaraiz = nodo._hijoderecho #se guarda el hijo derecho del nodo actual como nueva raíz
         nodo._hijoderecho = nuevaraiz._hijoizquierdo #el hijo izquierdo de la nueva raíz se convierte en el hijo derecho del nodo actual
         nuevaraiz._hijoizquierdo = nodo
