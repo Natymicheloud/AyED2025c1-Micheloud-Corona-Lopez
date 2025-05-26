@@ -3,8 +3,8 @@ class Vertice: #representa un nodo en el grafo
         self.__clave = clave #clave del vertice
         self.__adyacentes = {} #diccionario que almacena los vecinos (claves) y sus ponderaciones (valores)
 
-    def agregar_vecino(self, vecino, ponderacion):
-        self.__adyacentes[vecino] = ponderacion #agrega un vecino al vertice con su ponderacion
+    def agregar_vecino(self, clave_vecino, ponderacion):
+        self.__adyacentes[clave_vecino] = ponderacion #agrega un vecino al vertice con su ponderacion
 
     def __str__(self): #convierte el vertice a una cadena de texto
         return str(self.__clave) + "adyacentes:" + str([x.__clave for x in self.__adyacentes]) #nombre del vertice y sus vecinos
@@ -44,8 +44,9 @@ class Grafo: #representa un grafo no dirigido y ponderado
         if destino not in self.__vertices: #si el vertice de destino no existe, lo agrega antes de conectarlo
             self.agregar_vertice(destino)
         
-        self.__vertices[origen].agregar_vecino(self.__vertices[destino], ponderacion) #agrega la conexion entre origen y destino con la ponderacion especificada
-    
+        self.__vertices[origen].agregar_vecino(destino, ponderacion) #agrega la conexion entre origen y destino con la ponderacion especificada
+        self.__vertices[destino].agregar_vecino(origen, ponderacion) #agrega la conexion inversa, ya que el grafo es no dirigido
+
     def obtener_vertices(self): #devuelve una lista de las claves (nombres) de los vertices en el grafo
         return self.__vertices.keys()
     
