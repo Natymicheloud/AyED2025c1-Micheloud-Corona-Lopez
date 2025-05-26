@@ -1,4 +1,5 @@
 from modulos.monticulo import MonticuloBinario
+from modulos.grafo import Grafo
 
 def cargar_desde_archivo(self, archivo="aldeas.txt"):
     """Carga el grafo directamente desde un archivo"""
@@ -14,7 +15,7 @@ def cargar_desde_archivo(self, archivo="aldeas.txt"):
     
 # --- Prueba ---
 if __name__ == "__main__":
-    grafo = GrafoAldeas()
+    grafo = Grafo()
     grafo.cargar_desde_archivo()  # Carga los datos desde "aldeas.txt"
     
     aldea_inicio = "Lomaseca"  # Puedes cambiar a cualquier aldea

@@ -17,7 +17,7 @@ def cargar_datos(aldeas):
 def probar_monticulo():
     """Función para probar el montículo con los datos de aldeas"""
     # Cargar datos desde el archivo
-    conexiones = cargar_datos('aldeas_txt')
+    conexiones = cargar_datos(G, 'aldeas_txt')
     
     print("Primeras 5 conexiones cargadas:")
     for conexion in conexiones[:5]:

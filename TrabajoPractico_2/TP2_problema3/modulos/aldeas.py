@@ -1,35 +1,17 @@
-def cargar_datos(aldeas_txt):
-    """Carga los datos del archivo y los devuelve como lista de tuplas"""
-    datos = []
-    try:
-        with open(aldeas_txt, 'r') as f:
-            print(f"\nLeyendo archivo: {aldeas_txt}")  # Debug
-            for i, linea in enumerate(f, 1):
-                linea = linea.strip()
-                if not linea:  # Si la línea está vacía
-                    continue
-                
-                partes = linea.split(', ')
-                print(f"Línea {i}: {linea}")  # Debug
-                
-                if len(partes) == 3:
-                    try:
-                        origen = partes[0]
-                        destino = partes[1]
-                        distancia = int(partes[2])
-                        datos.append((distancia, origen, destino))
-                        print(f"Añadido: {(distancia, origen, destino)}")  # Debug
-                    except ValueError as e:
-                        print(f"Error en línea {i}: {e} - {linea}")
-                else:
-                    print(f"Formato incorrecto en línea {i}: {linea}")
-                    
-    except FileNotFoundError:
-        print(f"Error: Archivo '{aldeas_txt}' no encontrado")
-    except Exception as e:
-        print(f"Error inesperado: {e}")
-    
-    print(f"\nTotal de datos cargados: {len(datos)}")  # Debug
-    return datos
+from modulos.grafo import Grafo
 
-print(cargar_datos('aldeas_txt'))
+archivo = "test/aldeas.txt"
+
+def cargar_datos(grafo, archivo):
+    with open(archivo, 'r') as f:
+        for linea in f:
+            datos = linea.strip().split(',')
+            if len(datos) == 3:
+                origen, destino, ponderacion = datos[0], datos[1], int(datos[2])
+                grafo.agregar_arista(origen, destino, ponderacion)
+
+G = Grafo()
+cargar_datos(G, 'test/aldeas.txt')
+
+print("Aldeas en el grafo:", list(G.obtener_vertices()))
+print()
