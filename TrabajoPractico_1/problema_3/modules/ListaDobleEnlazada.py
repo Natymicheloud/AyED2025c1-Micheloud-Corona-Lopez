@@ -153,7 +153,7 @@ class ListaDobleEnlazada:
         return copia
     
     def invertir(self):
-        if self.__esta_vacia():
+        if self.esta_vacia():
             return
         actual = self.__cabeza
         while actual:
