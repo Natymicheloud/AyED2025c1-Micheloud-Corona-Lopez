@@ -33,39 +33,3 @@ def prim(grafo, inicio): #algoritmo de prim que necesita el grafo de aldeas y el
                         monticulo.Insertar((ponderacion, destino, vecino_clave)) #inserta el vecino en el montículo con su ponderación, origen y destino
 
     return aem  #cuando todas las aldeas estan conectadas, devuelve el árbol de expansión mínima con las conexiones optimas
-
-grafo = Grafo()
-cargar_datos(grafo, "test/aldeas.txt")
-
-aem = prim(grafo, "Peligros")  # empezamos desde la aldea 
-
-print(aem)
-
-total_leguas = sum(peso for _, _, peso in aem)
-print(f"\nDistancia total recorrida por las palomas: {total_leguas} leguas")
-
-aldeas = sorted(grafo.obtener_vertices())
-print("Aldeas en orden alfabético:")
-for aldea in aldeas:
-    print(aldea)
-
-quien_envia = {}
-quien_recibe = {}
-
-for origen, destino, _ in aem:
-    quien_envia.setdefault(origen, []).append(destino)
-    quien_recibe[destino] = origen
-
-for aldea in aldeas:
-    recibe_de = quien_recibe.get(aldea, None)  # None para la aldea inicial "Peligros"
-    envia_a = quien_envia.get(aldea, [])
-    print(f"Aldea: {aldea}")
-    if recibe_de:
-        print(f"  Recibe noticia de: {recibe_de}")
-    else:
-        print("  Es la aldea origen del mensaje.")
-    if envia_a:
-        print(f"  Envía noticia a: {', '.join(envia_a)}")
-    else:
-        print("  No envía noticia a ninguna otra aldea.")
-
