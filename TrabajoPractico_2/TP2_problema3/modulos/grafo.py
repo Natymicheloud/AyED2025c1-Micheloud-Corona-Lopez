@@ -1,7 +1,7 @@
 class Vertice: #representa un nodo en el grafo
     def __init__(self, clave): 
         self.__clave = clave #clave del vertice
-        self.__adyacentes = {} #diccionario que almacena los vecinos (claves) y sus ponderaciones (valores)
+        self.__adyacentes = {} #diccionario que almacena los vecinos (claves) y sus ponderaciones (valores). se utiliza un diccionario porque es mas eficiente para almacenar vecinos (ya que almacena solo los que existen) y permite acceder más rápido a los vecinos y sus ponderaciones (O(1)) dado que cada aldea tiene un conjunto de vecinos y cada vecino tiene una ponderación asociada.
 
     def agregar_vecino(self, clave_vecino, ponderacion):
         self.__adyacentes[clave_vecino] = ponderacion #agrega un vecino al vertice con su ponderacion
