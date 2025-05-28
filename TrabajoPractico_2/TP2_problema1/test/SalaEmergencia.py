@@ -1,9 +1,11 @@
 """
 Sala de emergencias
 """
+
 from modulos.paciente import Paciente 
 from modulos.ColaDePrioridad import ColaPrioridad    
 
+#prueba de que la sala de emergencias funciona correctamente
 cola = ColaPrioridad() #inicializa la cola de prioridad
 
 for n in range(20): #se generan 20 pacientes
