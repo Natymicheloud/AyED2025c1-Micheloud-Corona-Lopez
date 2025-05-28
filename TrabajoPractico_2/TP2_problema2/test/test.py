@@ -1,5 +1,5 @@
 from modulos.avl import AVL
-from modulos.Temperaturas_DB import TemperaturasDB
+from app.Temperaturas_DB import TemperaturasDB
 
 temperaturas = TemperaturasDB()
 
