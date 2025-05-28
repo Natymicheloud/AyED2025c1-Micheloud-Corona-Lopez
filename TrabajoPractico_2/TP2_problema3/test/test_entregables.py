@@ -11,7 +11,7 @@ for aldea in aldeas_ordenadas: #se itera sobre las aldeas ordenadas y se imprime
     print(f"- {aldea}")
 print()
 
-aem = prim(G, "Peligros") #se aplica el algoritmo de Prim para encontrar el árbol de expansión mínima, comenzando desde la aldea "Peligros". Devuelve una lista de aristas que forman el aem, donde cada arista tiene el formato (origen, destino, ponderacion)
+aem = prim(G, "Aceituna") #se aplica el algoritmo de Prim para encontrar el árbol de expansión mínima, comenzando desde la aldea "Peligros". Devuelve una lista de aristas que forman el aem, donde cada arista tiene el formato (origen, destino, ponderacion)
 
 quien_envia = {} # diccionario para rastrear quién envía noticias a quién
 quien_recibe = {} # diccionario para rastrear quién recibe noticias de quién

@@ -1,10 +1,8 @@
 from modulos.monticulo import MonticuloBinario
-from modulos.grafo import Grafo
-from modulos.aldeas import cargar_datos
 
 def prim(grafo, inicio): #algoritmo de prim que necesita el grafo de aldeas y el nodo inicio desde el cual se comienza a construir el árbol de expansión mínima (aem)
     aem = []  #lista para almacenar el árbol de expansión mínima
-    visitados = set()  #conjunto para rastrear los vértices visitados (aldeas ya incluidas en el aem)
+    visitados = set()  #conjunto para rastrear los vértices visitados (aldeas ya incluidas en el aem). se utiliza un conjunto (set()) porque no permite duplicados lo que hace que sea más eficiente la verificacion 
     monticulo = MonticuloBinario()  #montículo para seleccionar el siguiente vértice con la menor ponderación
 
     visitados.add(inicio)  #ponemos la aldea inicial como visitada para no volver a agregarla a la aem
