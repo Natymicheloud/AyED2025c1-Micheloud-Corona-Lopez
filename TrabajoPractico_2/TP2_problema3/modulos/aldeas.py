@@ -1,5 +1,3 @@
-from modulos.grafo import Grafo
-
 archivo = "test/aldeas.txt" 
 
 def cargar_datos(grafo, archivo): #carga los datos del archivo y los agrega al grafo
