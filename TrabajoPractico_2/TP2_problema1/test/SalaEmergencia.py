@@ -13,7 +13,7 @@ for n in range(20): #se generan 20 pacientes
     cola.insertar(paciente) #inserta el paciente en la cola de prioridad
 
 print("Pacientes en la sala de espera:")
-for paciente in cola.pacientes: #lista de pacientes en la cola
+for paciente in cola.datos: #lista de pacientes en la cola
     print(paciente) #imprime cada paciente
 
 while cola.tamano > 0: #mientras haya pacientes en la cola

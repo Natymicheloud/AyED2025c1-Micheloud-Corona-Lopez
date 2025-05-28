@@ -41,7 +41,7 @@ for i in range(n):
 
     # Se muestran los pacientes restantes en la cola de espera
     print('Pacientes que faltan atenderse:', cola_de_espera.tamano) 
-    for paciente in cola_de_espera.pacientes:
+    for paciente in cola_de_espera.datos:
         print('\t', paciente)
     
     print()
