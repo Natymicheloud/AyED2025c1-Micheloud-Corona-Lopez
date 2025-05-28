@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class MonticuloBinario:
-    def __init__(self):
+    def __init__(self): 
         self.listamonticulo = [0]
         self.tamañoactual = 0
 
