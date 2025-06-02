@@ -3,7 +3,7 @@ from modulos.aldeas import cargar_datos
 from modulos.prim import prim
 
 G = Grafo() #se crea una instancia del grafo para almacenar las aldeas y sus conexiones
-cargar_datos(G, "test/aldeas.txt") #se cargan los datos del archivo de aldeas al grafo
+cargar_datos(G, "data/aldeas.txt") #se cargan los datos del archivo de aldeas al grafo
 
 aldeas_ordenadas = sorted(G.obtener_vertices()) #se obtienen las aldeas del grafo y se ordenan alfabéticamente
 print("Aldeas en orden alfabético:") 
