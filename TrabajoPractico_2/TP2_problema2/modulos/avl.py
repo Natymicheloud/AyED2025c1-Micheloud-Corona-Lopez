@@ -50,15 +50,19 @@ class AVL():
         nodo._equilibrio = self._altura(nodo._hijoizquierdo) - self._altura(nodo._hijoderecho) #se calcula el factor de equilibrio del nodo, siendo la diferencia de alturas entre sus hijos izquierdo y derecho
 
         if nodo._equilibrio > 1: #si el factor de equilibrio es mayor a 1, el árbol está desbalanceado hacia la izquierda
-            if nodo._hijoizquierdo._equilibrio < 0: #si el hijo izquierdo tiene un factor de equilibrio negativo, se hace una rotación izquierda en el hijo izquierdo y una rotación derecha en el nodo actual (dos rotaciones)
+            if nodo._hijoizquierdo and nodo._hijoizquierdo._equilibrio < 0: #si el hijo izquierdo tiene un factor de equilibrio negativo, se hace una rotación izquierda en el hijo izquierdo y una rotación derecha en el nodo actual (dos rotaciones)
                 nodo._hijoizquierdo = self._rotarIzquierda(nodo._hijoizquierdo)
-            return self._rotarDerecha(nodo)
+            nodo = self._rotarDerecha(nodo)
         
-        if nodo._equilibrio < -1: #si el factor de equilibrio es menor a -1, el árbol está desbalanceado hacia la derecha
-            if nodo._hijoderecho._equilibrio > 0: #si el hijo derecho tiene un factor de equilibrio positivo, se hace una rotación derecha en el hijo derecho y una rotación izquierda en el nodo actual (dos rotaciones)
+        elif nodo._equilibrio < -1: #si el factor de equilibrio es menor a -1, el árbol está desbalanceado hacia la derecha
+            if nodo._hijoderecho and nodo._hijoderecho._equilibrio > 0: #si el hijo derecho tiene un factor de equilibrio positivo, se hace una rotación derecha en el hijo derecho y una rotación izquierda en el nodo actual (dos rotaciones)
                 nodo._hijoderecho = self._rotarDerecha(nodo._hijoderecho)
-            return self._rotarIzquierda(nodo)
+            nodo = self._rotarIzquierda(nodo)
         
+        #recalcula la altura y el equilibrio despues de la rotacion 
+        nodo._altura = 1 + max(self._altura(nodo._hijoizquierdo), self._altura(nodo._hijoderecho)) #se actualiza la altura del nodo, siendo 1 + la máxima altura de sus hijos
+        nodo._equilibrio = self._altura(nodo._hijoizquierdo) - self._altura(nodo._hijoderecho) #se calcula el factor de equilibrio del nodo, siendo la diferencia de alturas entre sus hijos izquierdo y derecho
+    
         return nodo #si el árbol está balanceado, se devuelve el nodo sin cambios
     
     def _altura(self, nodo): #método privado que devuelve la altura del nodo
@@ -70,8 +74,11 @@ class AVL():
         nuevaraiz._hijoderecho = nodo
         
         nodo._altura = 1 + max(self._altura(nodo._hijoizquierdo), self._altura(nodo._hijoderecho)) #se actualiza la altura del nodo actual, siendo 1 + la máxima altura de sus hijos
+        nodo._equilibrio = self._altura(nodo._hijoizquierdo) - self._altura(nodo._hijoderecho) #se actualiza el factor de equilibrio del nodo actual, siendo la diferencia de alturas entre sus hijos izquierdo y derecho
+
         nuevaraiz._altura = 1 + max(self._altura(nuevaraiz._hijoizquierdo), self._altura(nuevaraiz._hijoderecho)) #se actualiza la altura de la nueva raíz, siendo 1 + la máxima altura de sus hijos
-        
+        nuevaraiz._equilibrio = self._altura(nuevaraiz._hijoizquierdo) - self._altura(nuevaraiz._hijoderecho) #se actualiza el factor de equilibrio de la nueva raiz, siendo la diferencia de alturas entre sus hijos izquierdo y derecho
+
         return nuevaraiz 
     
     def _rotarIzquierda(self, nodo): #método privado que aplica la rotación izquierda
@@ -80,6 +87,9 @@ class AVL():
         nuevaraiz._hijoizquierdo = nodo
        
         nodo._altura = 1 + max(self._altura(nodo._hijoizquierdo), self._altura(nodo._hijoderecho))
+        nodo._equilibrio = self._altura(nodo._hijoizquierdo) - self._altura(nodo._hijoderecho)
+
         nuevaraiz._altura = 1 + max(self._altura(nuevaraiz._hijoizquierdo), self._altura(nuevaraiz._hijoderecho))
+        nuevaraiz._equilibrio = self._altura(nuevaraiz._hijoizquierdo) - self._altura(nuevaraiz._hijoderecho)
         
         return nuevaraiz
