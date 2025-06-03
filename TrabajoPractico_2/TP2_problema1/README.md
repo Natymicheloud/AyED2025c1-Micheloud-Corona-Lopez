@@ -1,15 +1,16 @@
 # Algoritmos de Ordenamiento.
 
-Breve descripción del proyecto: implementar algoritmos de ordenamiento, comprobar su funcionamiento, comparar el orden de complejidad mediante un analisis a priori y a posteriori (mediante gráficas).
+Breve descripción del proyecto:
+Para el problema 1 se utilizó la estructura del montículo binario para poder implementar la cola de prioridad, y que la clase paciente se almacene y se organice por nivel de riesgo, si más de un paciente presenta el mismo nivel de riesgo entonces se recurre al segundo criterio, el cual es el orden de llegada. Se comprueba el correcto funcionamiento de la clase paciente en la carpeta de test en la cual modelamos una sala de emergencia simple que devuelve en la terminal la lista ordenada y comprueba el correcto funcionamiento de la sala de emergencia, así como el test de pacientes que corrobora la creación y comparación de los pacientes. Así como el uso de la Sala de Emergecia bridada por la cátedra, en la carpeta de app, la cual utiliza la cola de prioridad del grupo.
+
 
 ## 🏗Arquitectura General
 
 Explica brevemente cómo está organizado el código (funciones y/o clases)
-Los códigos de ordenamiento están disponibles en la carpeta [modules](./modules) del problema.
+El montículo binario, la cola de prioridad y la clase paciente se encuentran en la carpeta [modules](./modules) del problema.
+El test de la clase paciente y de la sala de emergencia están disponibles en la carpeta [test](./test) del problema.
 
-Los códigos para la medición de tiempo de cada algoritmo y del método sorted están disponibles en la carpeta [test](./test) del problema.
-
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del problema.
+La Sala de Emergencia está disponible en la carpeta [data](./data) del problema.
 
 El informe completo está disponible en la carpeta [docs](./docs) del problema.
 
@@ -27,11 +28,11 @@ El informe completo está disponible en la carpeta [docs](./docs) del problema.
 
 2. **Crear y activar** un entorno virtual.
 
-3. **Instalar las dependencias**:
+<!-- 3. **Instalar las dependencias**:
    ```bash
    pip install -r requirements.txt
    ```
-   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del problema.
+   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del problema. -->
 
 ---
 ## 🙎‍♀️🙎‍♂️Autores
