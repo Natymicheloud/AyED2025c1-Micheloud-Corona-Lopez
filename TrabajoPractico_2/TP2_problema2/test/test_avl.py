@@ -13,7 +13,7 @@ avl.insertar("24/05/2025", 25.7)
 avl.insertar("25/05/2025", 30)
 avl.insertar("26/05/2025", 20.2)
 avl.insertar("27/05/2025", 35)
-avl.insertar("23/05/2025", 18.0) #este al ser una fecha anterior a las demas (clave menor), debería probocar una rotación y balanceo
+avl.insertar("28/05/2025", 18.0) 
 
 #prueba de busqueda
 fechas = ["24/05/2025", "25/05/2025", "26/05/2025", "28/05/2025"]
@@ -27,9 +27,9 @@ print("Estado del factor de equilibrio:")
 balance(avl._raiz) #se llama a la funcion para ver si luego de la insercion el equilibrio es el correcto
 
 #se insertan mas datos
-avl.insertar("22/05/2025", 15.0)
-avl.insertar("28/05/2025", 40.0)
-avl.insertar("29/05/2025", 45.0)
+avl.insertar("29/05/2025", 15.0)
+avl.insertar("30/05/2025", 40.0)
+avl.insertar("31/05/2025", 45.0)
 
 print()
 
