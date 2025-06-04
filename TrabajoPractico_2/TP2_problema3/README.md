@@ -1,11 +1,15 @@
-# Algoritmos de Ordenamiento.
+# Implementación de grafos y algoritmo Prim
 
-Breve descripción del proyecto: implementar algoritmos de ordenamiento, comprobar su funcionamiento, comparar el orden de complejidad mediante un analisis a priori y a posteriori (mediante gráficas).
+Breve descripción del proyecto:
+Breve descripción del proyecto:
+Para la resolución del problrma, implementamos grafos y algoritmo de prim para .
+El funcionamiento del AVL se comprueba con el test_avl y el test de la implementación con la base de datos en test.
+.
 
 ## 🏗Arquitectura General
 
 Explica brevemente cómo está organizado el código (funciones y/o clases)
-Los códigos de ordenamiento están disponibles en la carpeta [modules](./modules) del problema.
+Los códigos de ordenamiento están disponibles en la carpeta [modulos](./moduleo) del problema.
 
 Los códigos para la medición de tiempo de cada algoritmo y del método sorted están disponibles en la carpeta [test](./test) del problema.
 
