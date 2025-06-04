@@ -48,4 +48,3 @@ for i in range(n):
     print('-*-'*15)
     
     time.sleep(1) #espera de 1 segundo antes del siguiente ciclo
-
