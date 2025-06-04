@@ -1,7 +1,7 @@
 # Implementación de grafos y algoritmo Prim
 
 Breve descripción del proyecto:
-Para la resolución del problrma, implementamos grafos y algoritmo de prim, este usa un montículo binario, con el objetivo de enviar una noticia desde una aldea "origen" hacia las 21 aldeas "destino", recorriendo la menor cantidad de leguas posible para completar el recorrido.  
+Para la resolución del problema, implementamos grafos y algoritmo de prim, este usa un montículo binario, con el objetivo de enviar una noticia desde una aldea "origen" hacia las 21 aldeas "destino", recorriendo la menor cantidad de leguas posible para completar el recorrido.  
 El funcionamiento del AVL se comprueba con el test_avl y el test de la implementación con la base de datos en test.
 .
 
