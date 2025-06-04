@@ -1,19 +1,18 @@
 # Implementación de grafos y algoritmo Prim
 
 Breve descripción del proyecto:
-Breve descripción del proyecto:
-Para la resolución del problrma, implementamos grafos y algoritmo de prim para .
+Para la resolución del problrma, implementamos grafos y algoritmo de prim, este usa un montículo binario, con el objetivo de enviar una noticia desde una aldea "origen" hacia las 21 aldeas "destino", recorriendo la menor cantidad de leguas posible para completar el recorrido.  
 El funcionamiento del AVL se comprueba con el test_avl y el test de la implementación con la base de datos en test.
 .
 
 ## 🏗Arquitectura General
 
 Explica brevemente cómo está organizado el código (funciones y/o clases)
-Los códigos de ordenamiento están disponibles en la carpeta [modulos](./moduleo) del problema.
+La función que agrega los datos de las aldeas al grafo, la clase grafo, el montículo binario y el algoritmo prim están disponibles en la carpeta [modulos](./modulos) del problema.
 
-Los códigos para la medición de tiempo de cada algoritmo y del método sorted están disponibles en la carpeta [test](./test) del problema.
+La aplicación que resuelve el problema, muestra una lista ordenada alfabeticamente de las aldeas, imprime el recorrido más eficiente de las palomas y la distancia total recorrida, están disponibles en la carpeta [app](./app) del problema.
 
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del problema.
+La lista original de aldeas con sus aldeas vecinas y la distancia entre las mismas (ponderación) está disponible en la carpeta [data](./data) del problema.
 
 El informe completo está disponible en la carpeta [docs](./docs) del problema.
 
