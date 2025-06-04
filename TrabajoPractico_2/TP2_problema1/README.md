@@ -8,6 +8,7 @@ Para el problema 1 se utilizó la estructura del montículo binario para poder i
 
 Explica brevemente cómo está organizado el código (funciones y/o clases)
 El montículo binario, la cola de prioridad y la clase paciente se encuentran en la carpeta [modulos](./modulos) del problema.
+
 El test de la clase paciente y de la sala de emergencia están disponibles en la carpeta [test](./test) del problema.
 
 La Sala de Emergencia está disponible en la carpeta [app](./app) del problema.
