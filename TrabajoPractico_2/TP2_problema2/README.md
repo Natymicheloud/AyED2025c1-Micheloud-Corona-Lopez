@@ -1,21 +1,18 @@
-# ayed-tps-codigos-iniciales-para-estudiantes
-Códigos iniciales de TPs para estudiantes.
-
-# Algoritmos de Ordenamiento.
+# Implementación de AVL para base de datos
 
 Breve descripción del proyecto:
 Para resolver el problema se implementó un tipo de árbol binario, para que la información que procesa se mantenga lo más blanceado posible a medida que se insertan las temperaturas y se accede a esa información. Se utilizó para reducir la complejidad temporal que conlleva el uso de un arbol binario de búsqueda.
-Se usó la base de datos de Temperatura_DB, en la cual se implementa el AVL. Donde están definidas las funciones que permiten guardar las temperaturas, devolver las temperaturas, encontrar la temperatura máxima o mínima (o ambas) entre dos fechas, borrar una temperatura, enlista las temperaturas ordenadas por fechas entre dos días establecidos y también devuelve la cantidad de muestras de temperatura.
-El funcionamiento del AVL se comprueba con el test_avl y el test de la implementación con la base de datos en test.
+Se usaron los métodos de Temperatura_DB en la base de datos, en la cual se implementa el AVL. Donde están definidas las funciones que permiten guardar las temperaturas, devolver las temperaturas, encontrar la temperatura máxima o mínima (o ambas) entre dos fechas, borrar una temperatura, enlista las temperaturas ordenadas por fechas entre dos días establecidos y también devuelve la cantidad de muestras de temperatura.
+El funcionamiento del AVL se comprueba con el test_avl y el test de los métodos de Temperaturas_DB en test.
 
 ## 🏗Arquitectura General
 
 
-El AVL está disponible en la carpeta [modules](./modules) del problema.
+El AVL está disponible en la carpeta [modulos](./modulos) del problema.
 
-Los códigos que corroboran el funcionamiento de el árbol y de la implementación están disponibles en la carpeta [test](./test) del problema.
+Los códigos que corroboran el funcionamiento del árbol y de la implementación están disponibles en la carpeta [test](./test) del problema.
 
-La implementación del AVL en la base de datos Temperatura_DB está disponible en la carpeta [app](./app) del problema.
+La implementación del AVL en Temperatura_DB está disponible en la carpeta [app](./app) del problema.
 
 El informe completo está disponible en la carpeta [docs](./docs) del problema.
 
