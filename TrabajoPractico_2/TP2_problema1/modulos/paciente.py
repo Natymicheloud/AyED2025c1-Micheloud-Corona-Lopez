@@ -32,6 +32,7 @@ class Paciente:
         return self.__descripcion
 
     def __lt__(self, other): #compara dos pacientes para determinar cuál tiene mayor prioridad numerica (menor riesgo)
+        #lt es less than
         if self.__riesgo != other.__riesgo: #compara los niveles de riesgo
             return self.__riesgo < other.__riesgo #si son diferentes, el paciente con menor riesgo tiene mayor prioridad numerica
         return self.__llegada < other.__llegada #si los riesgos son iguales, se prioriza al que llegó primero
