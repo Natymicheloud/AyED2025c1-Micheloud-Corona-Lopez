@@ -7,11 +7,12 @@ class NodoAVL():
         self._altura = 1 #altura del nodo, para balanceo
         self._equilibrio = 0 #diferencia de altura entre subarboles
 
-class AVL():
+class AVL(): #es un arbol binario de búsqueda balanceado
     def __init__(self):
         self._raiz = None 
 
     def _insertar(self, nodo, fecha, temperatura): #método privado que aplica la inserción recursiva y el balanceo del árbol
+      #es un O (log n) en el peor caso, se considera que es log de 2 porque al ser un arbol binatio, la altura es logaritmica
         if nodo is None:
             return NodoAVL(fecha, temperatura) #si el nodo es una hoja, se crea uno nuevo con los datos
         
